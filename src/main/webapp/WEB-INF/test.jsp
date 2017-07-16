@@ -58,7 +58,7 @@
 
     <div class="container">
         <div class="starter-template">
-            <p>Does it work?</p>
+            <h1>Does it work?</h1>
             <c:choose>
                 <c:when test="${not empty testList}">
                     <p>Hell yeah!</p>
@@ -74,8 +74,7 @@
     </div>
     <!-- /.container -->
 
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
+    <!-- Bootstrap core JavaScript ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script>
