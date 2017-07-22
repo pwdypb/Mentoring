@@ -21,7 +21,13 @@ jobs:
        - image: circleci/openjdk:8-jdk-browsers
      steps:
        - checkout
+       - restore_cache:
+           key: mentoring-test-{{ checksum "pom.xml" }}
        - run: mvn test
+       - save_cache:
+           paths:
+             - ~/.m2
+           key: mentoring-test-{{ checksum "pom.xml" }}
        - store_test_results:
            path: target/surefire-reports
    deploy:
