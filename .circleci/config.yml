@@ -7,23 +7,23 @@ jobs:
      steps:
        - checkout
        - restore_cache:
-           key: imbd-{{ checksum "pom.xml" }}
+           key: mentoring-{{ checksum "pom.xml" }}
        - run: mvn dependency:go-offline
        - save_cache:
            paths:
              - ~/.m2
-           key: imbd-{{ checksum "pom.xml" }}
+           key: mentoring-{{ checksum "pom.xml" }}
        - run: mvn package
-       - store_artifacts:
-           path: target/imbd-SNAPSHOT.war
+#       - store_artifacts:
+#           path: target/mentoring-SNAPSHOT.war
    test:
      docker:
        - image: circleci/openjdk:8-jdk-browsers
      steps:
        - checkout
        - run: mvn test
-       - store_test_results:
-           path: target/surefire-reports
+#       - store_test_results:
+#           path: target/surefire-reports
    deploy:
      docker:
        - image: circleci/openjdk:8-jdk-browsers
