@@ -3,6 +3,7 @@ package com.artos.mentoring.controller;
 import com.artos.mentoring.dao.UserDao;
 import com.artos.mentoring.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,8 +26,16 @@ public class TestController {
     @Autowired
     private UserDao userDao;
 
+    @Value("${application.message:Hello dude}")
+    private String message;
+
+    @Value("${application.message2:Hello dude2}")
+    private String message2;
+
     @RequestMapping(value = INDEX_MAPPING)
     public String index(Model model) {
+        model.addAttribute("message", message);
+        model.addAttribute("message2", message2);
         return INDEX_VIEW;
     }
 

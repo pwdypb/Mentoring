@@ -38,3 +38,5 @@ target/
 *.iws
 *.iml
 *.ipr
+
+/src/main/resources/application-dev.properties
