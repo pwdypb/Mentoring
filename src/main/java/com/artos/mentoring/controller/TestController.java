@@ -21,6 +21,9 @@ public class TestController {
     private static final String SPEC_MAPPING = "/test";
     private static final String SPEC_VIEW = "test";
     private static final String TEST_ATTRIBUTE = "testList";
+    private static final String CREATE_USER_MAPPING = "/createUser";
+    private static final String DELETE_USER_MAPPING = "/delete";
+    private static final String GET_USERS_MAPPING = "/get";
 
     @Autowired
     private UserDao userDao;
@@ -37,7 +40,7 @@ public class TestController {
         return SPEC_VIEW;
     }
 
-    @RequestMapping(value = "/create")
+    @RequestMapping(value = CREATE_USER_MAPPING)
     @ResponseBody
     public String create(String email) {
         User user = new User(email);
@@ -47,17 +50,17 @@ public class TestController {
         return "User successfully created! (email: " + user.getEmail() + ")";
     }
 
-    @RequestMapping(value = "/delete")
+    @RequestMapping(value = DELETE_USER_MAPPING)
     @ResponseBody
     public String delete(String email) {
         User user = userDao.findByEmail(email);
 
         userDao.delete(user);
 
-        return "User successfully deleted";
+        return "User successfully deleted (email: " + email;
     }
 
-    @RequestMapping(value = "/get")
+    @RequestMapping(value = GET_USERS_MAPPING)
     @ResponseBody
     public String getAll() {
         Iterable<User> users = userDao.findAll();
