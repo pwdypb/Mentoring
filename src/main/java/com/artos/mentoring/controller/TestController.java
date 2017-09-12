@@ -1,6 +1,6 @@
 package com.artos.mentoring.controller;
 
-import com.artos.mentoring.dao.UserDao;
+import com.artos.mentoring.dao.TravelerDao;
 import com.artos.mentoring.model.Traveler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,12 +21,12 @@ public class TestController {
     private static final String SPEC_MAPPING = "/test";
     private static final String SPEC_VIEW = "test";
     private static final String TEST_ATTRIBUTE = "testList";
-    private static final String CREATE_USER_MAPPING = "/createUser";
-    private static final String DELETE_USER_MAPPING = "/delete";
-    private static final String GET_USERS_MAPPING = "/get";
+    private static final String CREATE_TRAVELER_MAPPING = "/create";
+    private static final String DELETE_TRAVELER_MAPPING = "/delete";
+    private static final String GET_TRAVELERS_MAPPING = "/get";
 
     @Autowired
-    private UserDao userDao;
+    private TravelerDao travelerDao;
 
     @RequestMapping(value = INDEX_MAPPING)
     public String index(Model model) {
@@ -40,30 +40,30 @@ public class TestController {
         return SPEC_VIEW;
     }
 
-    @RequestMapping(value = CREATE_USER_MAPPING)
+    @RequestMapping(value = CREATE_TRAVELER_MAPPING)
     @ResponseBody
     public String create(String email) {
         Traveler traveler = new Traveler(email);
 
-        userDao.save(traveler);
+        travelerDao.save(traveler);
 
         return "Traveler successfully created! (email: " + traveler.getEmail() + ")";
     }
 
-    @RequestMapping(value = DELETE_USER_MAPPING)
+    @RequestMapping(value = DELETE_TRAVELER_MAPPING)
     @ResponseBody
     public String delete(String email) {
-        Traveler traveler = userDao.findByEmail(email);
+        Traveler traveler = travelerDao.findByEmail(email);
 
-        userDao.delete(traveler);
+        travelerDao.delete(traveler);
 
-        return "Traveler successfully deleted (email: " + email;
+        return "My potions were too strong for you, traveler (email: " + email;
     }
 
-    @RequestMapping(value = GET_USERS_MAPPING)
+    @RequestMapping(value = GET_TRAVELERS_MAPPING)
     @ResponseBody
     public String getAll() {
-        Iterable<Traveler> users = userDao.findAll();
+        Iterable<Traveler> users = travelerDao.findAll();
 
         return StreamSupport.stream(users.spliterator(), false)
             .map(Traveler::getEmail)
