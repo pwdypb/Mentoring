@@ -1,7 +1,7 @@
 package com.artos.mentoring.controller;
 
 import com.artos.mentoring.dao.UserDao;
-import com.artos.mentoring.model.User;
+import com.artos.mentoring.model.Traveler;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,30 +43,30 @@ public class TestController {
     @RequestMapping(value = CREATE_USER_MAPPING)
     @ResponseBody
     public String create(String email) {
-        User user = new User(email);
+        Traveler traveler = new Traveler(email);
 
-        userDao.save(user);
+        userDao.save(traveler);
 
-        return "User successfully created! (email: " + user.getEmail() + ")";
+        return "Traveler successfully created! (email: " + traveler.getEmail() + ")";
     }
 
     @RequestMapping(value = DELETE_USER_MAPPING)
     @ResponseBody
     public String delete(String email) {
-        User user = userDao.findByEmail(email);
+        Traveler traveler = userDao.findByEmail(email);
 
-        userDao.delete(user);
+        userDao.delete(traveler);
 
-        return "User successfully deleted (email: " + email;
+        return "Traveler successfully deleted (email: " + email;
     }
 
     @RequestMapping(value = GET_USERS_MAPPING)
     @ResponseBody
     public String getAll() {
-        Iterable<User> users = userDao.findAll();
+        Iterable<Traveler> users = userDao.findAll();
 
         return StreamSupport.stream(users.spliterator(), false)
-            .map(User::getEmail)
+            .map(Traveler::getEmail)
             .collect(Collectors.joining(", "));
     }
 }

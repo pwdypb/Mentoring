@@ -8,7 +8,7 @@ import javax.persistence.Id;
  * Created by Benjámin Árva on 2017. 09. 04..
  */
 @Entity
-public class User {
+public class Traveler {
 
     @Id
     @GeneratedValue
@@ -16,10 +16,10 @@ public class User {
 
     private String email;
 
-    public User() {
+    public Traveler() {
     }
 
-    public User(String email) {
+    public Traveler(String email) {
         this.email = email;
     }
 

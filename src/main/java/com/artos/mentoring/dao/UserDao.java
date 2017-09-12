@@ -1,12 +1,12 @@
 package com.artos.mentoring.dao;
 
-import com.artos.mentoring.model.User;
+import com.artos.mentoring.model.Traveler;
 import org.springframework.data.repository.CrudRepository;
 
 /**
  * Created by Benjámin Árva on 2017. 09. 04..
  */
-public interface UserDao extends CrudRepository<User, Long> {
+public interface UserDao extends CrudRepository<Traveler, Long> {
 
-    User findByEmail(String email);
+    Traveler findByEmail(String email);
 }
