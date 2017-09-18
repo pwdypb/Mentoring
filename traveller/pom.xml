@@ -3,10 +3,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <name>mentoring</name>
+    <name>traveller</name>
     <description>Demo project for Spring Boot</description>
     <groupId>com.artos</groupId>
-    <artifactId>mentoring</artifactId>
+    <artifactId>traveller</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
