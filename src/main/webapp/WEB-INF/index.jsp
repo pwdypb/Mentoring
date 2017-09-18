@@ -57,8 +57,6 @@
     <div class="container">
         <div class="starter-template">
             <h1>Ayy lemmeo</h1>
-            <h1>${message}</h1>
-            <h1>${message2}</h1>
             <p class="lead">Asd asd asd asd</p>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Mattis vulputate enim nulla aliquet porttitor lacus luctus accumsan. Risus nullam eget felis eget nunc. Egestas sed tempus urna et pharetra pharetra massa. Curabitur vitae nunc sed velit. Metus vulputate eu scelerisque felis. Id faucibus nisl tincidunt eget nullam non nisi est. Tristique risus nec feugiat in fermentum posuere. Mollis nunc sed id semper risus in hendrerit. Rhoncus est pellentesque elit ullamcorper dignissim. Nunc mi ipsum faucibus vitae aliquet nec ullamcorper sit amet. Orci nulla pellentesque dignissim enim sit amet venenatis. Lectus mauris ultrices eros in cursus turpis massa. Eget duis at tellus at urna condimentum mattis. Libero enim sed faucibus turpis in. Diam in arcu cursus euismod quis viverra. Sem viverra aliquet eget sit amet. Non nisi est sit amet facilisis magna etiam tempor.</p>
         </div>
