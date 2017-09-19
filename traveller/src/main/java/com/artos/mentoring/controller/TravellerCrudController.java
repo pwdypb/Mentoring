@@ -32,7 +32,8 @@ public class TravellerCrudController {
     @PostMapping
     public Traveler createTraveller(@RequestParam String email) {
         LOG.info("Create traveller");
-        return travellerService.getTravellerByEmail(email).orElseThrow(NoSuchElementException::new);
+        return travellerService.getTravellerByEmail(email)
+                .orElseThrow(NoSuchElementException::new);
     }
 
     @DeleteMapping

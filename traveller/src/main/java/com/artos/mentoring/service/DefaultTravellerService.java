@@ -23,7 +23,9 @@ public class DefaultTravellerService implements TravellerService {
 
     @Override
     public Traveler createTravellerWithEmail(String email) {
-        return null;
+        Traveler traveller = new Traveler();
+        traveller.setEmail(email);
+        return travelerDao.save(traveller);
     }
 
 }
