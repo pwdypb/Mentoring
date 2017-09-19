@@ -17,6 +17,16 @@ services:
       - "8200:8200"
     networks:
       - webtrek
+  rabbit:
+    image: rabbitmq:management
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - webtrek
 
 networks:
   webtrek:
