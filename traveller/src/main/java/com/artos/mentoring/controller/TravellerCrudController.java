@@ -1,11 +1,13 @@
 package com.artos.mentoring.controller;
 
+import com.artos.mentoring.model.Traveler;
+import com.artos.mentoring.service.TravellerService;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.NoSuchElementException;
 
 
 /**
@@ -17,14 +19,20 @@ public class TravellerCrudController {
 
     private static final Logger LOG = Logger.getLogger(TravellerCrudController.class);
 
+    @Autowired
+    private TravellerService travellerService;
+
     @GetMapping
-    public void createTraveller() {
+    @ResponseBody
+    public Traveler getTraveller(@RequestParam String email) {
         LOG.info("Get traveller");
+        return travellerService.createTravellerWithEmail(email);
     }
 
     @PostMapping
-    public void getTraveller() {
+    public Traveler createTraveller(@RequestParam String email) {
         LOG.info("Create traveller");
+        return travellerService.getTravellerByEmail(email).orElseThrow(NoSuchElementException::new);
     }
 
     @DeleteMapping
