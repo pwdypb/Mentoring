@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class MentoringApplication extends SpringBootServletInitializer {
+public class TravellerApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MentoringApplication.class, args);
+		SpringApplication.run(TravellerApplication.class, args);
 	}
 }
