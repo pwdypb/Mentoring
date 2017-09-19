@@ -13,4 +13,8 @@ public interface TravellerService {
 
     Traveler createTravellerWithEmail(String email);
 
+    Long deleteTravellerByEmail(String email);
+
+    Iterable<Traveler> getAllTravellers();
+
 }

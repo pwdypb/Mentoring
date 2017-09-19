@@ -12,4 +12,6 @@ public interface TravelerDao extends CrudRepository<Traveler, Long> {
 
     Optional<Traveler> findByEmail(String email);
 
+    Long deleteByEmail(String email);
+
 }

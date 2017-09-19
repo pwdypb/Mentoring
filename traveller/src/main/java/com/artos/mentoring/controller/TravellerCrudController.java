@@ -22,23 +22,34 @@ public class TravellerCrudController {
     @Autowired
     private TravellerService travellerService;
 
+    @GetMapping
+    @ResponseBody
+    public Iterable<Traveler> getAllTravellers() {
+        LOG.info("Retrieving all travellers");
+        return travellerService.getAllTravellers();
+    }
+
     @PostMapping("/get")
     @ResponseBody
     public Traveler getTraveller(@RequestParam String email) {
-        LOG.info("Get traveller");
+        LOG.info(String.format("Get traveller by email (%s)", email));
         return travellerService.getTravellerByEmail(email).orElseThrow(NoSuchElementException::new);
     }
 
     @PostMapping("/create")
     @ResponseBody
     public Traveler createTraveller(@RequestParam String email) {
-        LOG.info("Create traveller");
+        LOG.info(String.format("Create traveller with email (%s)", email));
         return travellerService.createTravellerWithEmail(email);
     }
 
-    @DeleteMapping
-    public void deleteTraveller() {
-        LOG.info("Delete traveller");
+    @PostMapping("/delete")
+    @ResponseBody
+    public Long deleteTraveller(@RequestParam String email) {
+        LOG.info(String.format("Delete traveller by email (%s)", email));
+        Long noOfdeletedTravellers = travellerService.deleteTravellerByEmail(email);
+        LOG.info("Deleted " + noOfdeletedTravellers);
+        return noOfdeletedTravellers;
     }
 
 }
