@@ -22,18 +22,18 @@ public class TravellerCrudController {
     @Autowired
     private TravellerService travellerService;
 
-    @GetMapping
+    @PostMapping("/get")
     @ResponseBody
     public Traveler getTraveller(@RequestParam String email) {
         LOG.info("Get traveller");
-        return travellerService.createTravellerWithEmail(email);
+        return travellerService.getTravellerByEmail(email).orElseThrow(NoSuchElementException::new);
     }
 
-    @PostMapping
+    @PostMapping("/create")
+    @ResponseBody
     public Traveler createTraveller(@RequestParam String email) {
         LOG.info("Create traveller");
-        return travellerService.getTravellerByEmail(email)
-                .orElseThrow(NoSuchElementException::new);
+        return travellerService.createTravellerWithEmail(email);
     }
 
     @DeleteMapping
