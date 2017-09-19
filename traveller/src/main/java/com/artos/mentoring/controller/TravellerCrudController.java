@@ -16,7 +16,6 @@ import java.util.NoSuchElementException;
  * Created by Gyula_Sajtos on 2017-09-19.
  */
 @RestController
-@RequestMapping("/traveller")
 public class TravellerCrudController {
 
     private static final Logger LOG = Logger.getLogger(TravellerCrudController.class);

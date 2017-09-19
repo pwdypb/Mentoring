@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  traveller:
+    image: trexxx/traveller
+    deploy:
+      replicas: 2
+    ports:
+      - "8100:8080"
+    networks:
+      - webtrek
+  trek:
+    image: trexxx/trek
+    deploy:
+      replicas: 2
+    ports:
+      - "8200:8200"
+    networks:
+      - webtrek
+
+networks:
+  webtrek:
